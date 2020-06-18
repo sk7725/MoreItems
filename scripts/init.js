@@ -87,11 +87,12 @@ function addItemForm(pitem, type, form, brightOffset, displayName){
   item.flammability = pitem.flammability;
   item.radioactivity = pitem.radioactivity;
   item.hardness = pitem.hardness;
-
+  print("Add item:"+item);
 }
 
 Vars.content.items.each(cons(it=>{
+  print("Iter:"+it);
   if(it.name.substring(0,9)=="moreitems") return;
-  addItemForm(it, "resource", "pieces", -10, "Piecces");
+  addItemForm(it, "resource", "pieces", -10, "Pieces");
   addItemForm(it, "material", "rod", 10, "Rod");
 }));
