@@ -1,7 +1,7 @@
-/*
-if(typeof(PixmapTextureData) == "undefined"){
-  const PixmapTextureData = Packages.arc.graphics.gl.PixmapTextureData;
-}*/
+
+if(typeof(PixmapTextureData1) == "undefined"){
+  const PixmapTextureData1 = Packages.arc.graphics.gl.PixmapTextureData;
+}
 
 const res={};
 
@@ -9,7 +9,7 @@ res.masks = {};
 res.Item = {
 	setTexture(pixmap) {
 		this.pixmap = pixmap;
-		const texture = new Texture(new PixmapTextureData(pixmap, null, true, false, true));
+		const texture = new Texture(new PixmapTextureData1(pixmap, null, true, false, true));
 		const item = this;
 		Core.app.post(run(() => {
 			item.region = Core.atlas.addRegion(this.name, new TextureRegion(texture))
@@ -72,7 +72,7 @@ res.Item = {
 };
 res.Item.type = ItemType.material;
 
-function addItemForm(pitem, type, form, brightOffset, displayName){
+function addItemForm(pitem, type, form, brightOffset){
   var itemDef = Object.create(res.Item);
 
   if(!type) type = "resource";
@@ -85,7 +85,7 @@ function addItemForm(pitem, type, form, brightOffset, displayName){
   item.color = pitem.color.cpy().add(brightOffset, brightOffset, brightOffset);
 	item.type = itemDef.type;
 
-  item.localizedName = pitem.localizedName +" "+ displayName;
+  item.localizedName = pitem.localizedName +" "+ Core.bundle.get("itemform." + form + ".name");
   item.explosiveness = pitem.explosiveness;
   item.flammability = pitem.flammability;
   item.radioactivity = pitem.radioactivity;
@@ -97,6 +97,6 @@ print("Init!");
 Vars.content.items().each(cons(it=>{
   print("Iter:"+it);
   if(it.name.substring(0,9)=="moreitems") return;
-  addItemForm(it, "resource", "pieces", -0.04, "Pieces");
-  addItemForm(it, "material", "rod", 0.04, "Rod");
+  addItemForm(it, "resource", "pieces", -0.04);
+  addItemForm(it, "material", "rod", 0.04);
 }));
