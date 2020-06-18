@@ -3,7 +3,7 @@ const root = [
     name:"pieces",
     type:"resource",
     colorGlow:-0.04,
-    statScale:0.3
+    statScale:0
   },
   {
     name:"rod",
@@ -20,6 +20,13 @@ const root = [
     whitelistType:"material"
   },
   {
+    name:"wire",
+    type:"material",
+    colorGlow:0.2,
+    statScale:0,
+    whitelistType:"material"
+  },
+  {
     name:"dust",
     type:"resource",
     colorGlow:0.14,
@@ -32,6 +39,8 @@ const root = [
 if(typeof(PixmapTextureData1) == "undefined"){
   const PixmapTextureData1 = Packages.arc.graphics.gl.PixmapTextureData;
 }
+
+const tolerance = 0.01;
 
 const res={};
 
@@ -64,8 +73,10 @@ res.Item = {
 			for(y = 0; y < 32; y++){
 				pixel.set(mask.getPixel(x, y));
 				if(pixel.a > 0){
-					pixel.mul(color);
-					pixel.a *= color.a; // For ghost items :o
+          if(Mathf.equal(pixel.r, pixel.g, tolerance)&&Mathf.equal(pixel.b, pixel.g, tolerance)&&Mathf.equal(pixel.r, pixel.b, tolerance)){
+            pixel.mul(color);
+  					pixel.a *= color.a; // For ghost items :o
+          }
 					newTexture.draw(x, y, pixel);
 				}
 			}
