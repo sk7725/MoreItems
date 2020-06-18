@@ -94,7 +94,7 @@ function addItemForm(pitem, type, form, brightOffset, displayName){
 }
 
 print("Init!");
-Vars.content.items.each(cons(it=>{
+Vars.content.items().each(cons(it=>{
   print("Iter:"+it);
   if(it.name.substring(0,9)=="moreitems") return;
   addItemForm(it, "resource", "pieces", -10, "Pieces");
