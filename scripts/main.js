@@ -93,12 +93,10 @@ function addItemForm(pitem, type, form, brightOffset){
   print("Add item:"+item);
 }
 
-Events.on(EventType.ClientLoadEvent, run(() => {
-  print("Init!");
-  Vars.content.items().each(cons(it=>{
-    print("Iter:"+it);
-    if(it.name.substring(0,9)=="moreitems") return;
-    addItemForm(it, "resource", "pieces", -0.04);
-    addItemForm(it, "material", "rod", 0.04);
-  }));
+print("Init!");
+Vars.content.items().each(cons(it=>{
+  print("Iter:"+it);
+  if(it.name.substring(0,9)=="moreitems") return;
+  addItemForm(it, "resource", "pieces", -0.04);
+  addItemForm(it, "material", "rod", 0.04);
 }));
