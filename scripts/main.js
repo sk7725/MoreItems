@@ -138,7 +138,7 @@ function addItemForm(pitem, type, form, brightOffset, statScale){
 function addItemForms(it){
   if(!it.name.includes("-itemform-")){
     for(var i=0;i<root.length;i++){
-      if(root[i].hasOwnProperty("whitelistType")&&ItemType[root[i].whitelistType]!=it.type) return;
+      if(root[i].hasOwnProperty("whitelistType")&&ItemType[root[i].whitelistType]!=it.type) continue;
       addItemForm(it, root[i].type, root[i].name, root[i].colorGlow, root[i].statScale);
     }
   }
