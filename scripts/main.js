@@ -73,6 +73,7 @@ res.Item = {
 res.Item.type = ItemType.material;
 
 function addItemForm(pitem, type, form, brightOffset){
+  if(pitem.isDuplicate) return;
   var itemDef = Object.create(res.Item);
 
   if(!type) type = "resource";
@@ -90,6 +91,7 @@ function addItemForm(pitem, type, form, brightOffset){
   item.flammability = pitem.flammability;
   item.radioactivity = pitem.radioactivity;
   item.hardness = pitem.hardness;
+  item.isDuplicate = true;
   print("Add item:"+item.name);
 }
 
