@@ -73,25 +73,30 @@ res.Item = {
 res.Item.type = ItemType.material;
 
 function addItemForm(pitem, type, form, brightOffset){
-  var itemDef = Object.create(res.Item);
+  try{
+    var itemDef = Object.create(res.Item);
 
-  if(!type) type = "resource";
-  type = ItemType[type];
+    if(!type) type = "resource";
+    type = ItemType[type];
 
-  itemDef.type = type;
-  itemDef.mask = "moreitems-"+form;
+    itemDef.type = type;
+    itemDef.mask = "moreitems-"+form;
 
-  var item = extendContent(Item, pitem.name+"-itemform-"+form, itemDef);
-  item.color = pitem.color.cpy().add(brightOffset, brightOffset, brightOffset);
-	item.type = itemDef.type;
+    var item = extendContent(Item, pitem.name+"-itemform-"+form, itemDef);
+    item.color = pitem.color.cpy().add(brightOffset, brightOffset, brightOffset);
+  	item.type = itemDef.type;
 
-  item.localizedName = pitem.localizedName +" "+ Core.bundle.get("itemform." + form + ".name");
-  item.explosiveness = pitem.explosiveness;
-  item.flammability = pitem.flammability;
-  item.radioactivity = pitem.radioactivity;
-  item.hardness = pitem.hardness;
-  item.load();
-  print("Add item:"+item.name);
+    item.localizedName = pitem.localizedName +" "+ Core.bundle.get("itemform." + form + ".name");
+    item.explosiveness = pitem.explosiveness;
+    item.flammability = pitem.flammability;
+    item.radioactivity = pitem.radioactivity;
+    item.hardness = pitem.hardness;
+    item.load();
+    print("Add item:"+item.name);
+  }
+  catch(err){
+    print(err);
+  }
 }
 
 
