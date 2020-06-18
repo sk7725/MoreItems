@@ -8,9 +8,23 @@ const root = [
   {
     name:"rod",
     type:"material",
-    colorGlow:0.04,
+    colorGlow:0.08,
     statScale:0.9,
     whitelistType:"material"
+  },
+  {
+    name:"plate",
+    type:"material",
+    colorGlow:0.12,
+    statScale:0.5,
+    whitelistType:"material"
+  },
+  {
+    name:"dust",
+    type:"resource",
+    colorGlow:0.14,
+    statScale:1.2,
+    whitelistType:"resource"
   }
 ];
 
@@ -107,6 +121,7 @@ function addItemForm(pitem, type, form, brightOffset, statScale){
     item.flammability = pitem.flammability*statScale;
     item.radioactivity = pitem.radioactivity*statScale;
     item.hardness = pitem.hardness;
+    item.description = Core.bundle.get("itemform." + form + ".description", pitem.localizedName);
     item.load();
     print("Add item:"+item.name);
   }
