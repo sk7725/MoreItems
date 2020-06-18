@@ -93,7 +93,7 @@ function addItemForm(pitem, type, form, brightOffset){
   print("Add item:"+item);
 }
 
-Events.on(EventType.ContentReloadEvent, run(() => {
+Events.on(EventType.ClientLoadEvent, run(() => {
   print("Init!");
   Vars.content.items().each(cons(it=>{
     print("Iter:"+it);
