@@ -81,7 +81,7 @@ function addItemForm(pitem, type, form, brightOffset){
   itemDef.type = type;
   itemDef.mask = "moreitems-"+form;
 
-  var item = extendContent(Item, pitem.name+"-"+form, itemDef);
+  var item = extendContent(Item, pitem.name+"-itemform-"+form, itemDef);
   item.color = pitem.color.cpy().add(brightOffset, brightOffset, brightOffset);
 	item.type = itemDef.type;
 
@@ -93,36 +93,14 @@ function addItemForm(pitem, type, form, brightOffset){
   print("Add item:"+item.name);
 }
 
-print("Init!");
-Vars.content.items().each(cons(it=>{
-  print("Iter:"+it.name+"/"+it.minfo.mod+(it.minfo.mod)?("/"+it.minfo.mod.meta.name):"");
-  if(it.minfo.mod==null || it.minfo.mod.meta.name!="moreitems"){
-    addItemForm(it, "resource", "pieces", -0.04);
-    addItemForm(it, "material", "rod", 0.04);
-  }
-}));
-Vars.content.items().each(cons(it=>{
-  print("Iter:"+it.name+"/"+it.minfo.mod+(it.minfo.mod)?("/"+it.minfo.mod.meta.name):"");
-  if(it.minfo.mod==null || it.minfo.mod.meta.name!="moreitems"){
-    try{
-      addItemForm(it, "resource", "pieces", -0.04);
-      addItemForm(it, "material", "rod", 0.04);
-    }
-    catch(err){
 
-    }
-
-  }
-}));
-/*
 Events.on(EventType.ContentReloadEvent, run(() => {
   print("Init!");
   Vars.content.items().each(cons(it=>{
-    print("Iter:"+it.name+"/"+it.minfo.mod+(it.minfo.mod!=null)?("/"+it.minfo.mod.meta.name):"");
-    if(it.minfo.mod==null || it.minfo.mod.meta.name!="moreitems"){
+    //print("Iter:"+it.name+"/"+it.minfo.mod+(it.minfo.mod!=null)?("/"+it.minfo.mod.meta.name):"");
+    if(!it.name.includes("-itemform-")){
       addItemForm(it, "resource", "pieces", -0.04);
       addItemForm(it, "material", "rod", 0.04);
     }
   }));
 }));
-*/
