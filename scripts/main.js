@@ -97,6 +97,6 @@ print("Init!");
 Vars.content.items().each(cons(it=>{
   print("Iter:"+it);
   if(it.name.substring(0,9)=="moreitems") return;
-  addItemForm(it, "resource", "pieces", -10, "Pieces");
-  addItemForm(it, "material", "rod", 10, "Rod");
+  addItemForm(it, "resource", "pieces", -0.04, "Pieces");
+  addItemForm(it, "material", "rod", 0.04, "Rod");
 }));

@@ -69,7 +69,7 @@ res.Item = {
 };
 res.Item.type = ItemType.material;
 
-function addItemForm(pitem, type, form, brightOffset, displayName){
+function addItemForm(pitem, type, form, brightOffset){
   var itemDef = Object.create(res.Item);
 
   if(!type) type = "resource";
@@ -82,7 +82,7 @@ function addItemForm(pitem, type, form, brightOffset, displayName){
   item.color = pitem.color.cpy().add(brightOffset, brightOffset, brightOffset);
 	item.type = itemDef.type;
 
-  item.localizedName = pitem.localizedName +" "+ displayName;
+  item.localizedName = pitem.localizedName +" "+ Core.bundle.get("itemform." + form + ".name");
   item.explosiveness = pitem.explosiveness;
   item.flammability = pitem.flammability;
   item.radioactivity = pitem.radioactivity;
@@ -94,6 +94,6 @@ print("Init!");
 Vars.content.items.each(cons(it=>{
   print("Iter:"+it);
   if(it.name.substring(0,9)=="moreitems") return;
-  addItemForm(it, "resource", "pieces", -10, "Pieces");
-  addItemForm(it, "material", "rod", 10, "Rod");
+  addItemForm(it, "resource", "pieces", -10);
+  addItemForm(it, "material", "rod", 10);
 }));
