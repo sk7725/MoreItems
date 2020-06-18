@@ -90,6 +90,7 @@ function addItemForm(pitem, type, form, brightOffset){
   item.flammability = pitem.flammability;
   item.radioactivity = pitem.radioactivity;
   item.hardness = pitem.hardness;
+  item.load();
   print("Add item:"+item.name);
 }
 
