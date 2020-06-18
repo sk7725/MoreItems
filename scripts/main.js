@@ -134,27 +134,27 @@ function addItemForm(pitem, type, form, brightOffset, statScale){
   }
 }
 
-function addItemForms(it){
+function addItemForms(it, i){
   if(!it.name.includes("-itemform-")){
-    for(var i=0;i<root.length;i++){
-      if(root[i].hasOwnProperty("whitelistType")&&ItemType[root[i].whitelistType]!=it.type) continue;
-      addItemForm(it, root[i].type, root[i].name, root[i].colorGlow, root[i].statScale);
-    }
+    if(root[i].hasOwnProperty("whitelistType")&&ItemType[root[i].whitelistType]!=it.type) return;
+    addItemForm(it, root[i].type, root[i].name, root[i].colorGlow, root[i].statScale);
+  }
+}
+
+function addItemRoot(){
+  for(var i=0;i<root.length;i++){
+    Vars.content.items().each(cons(it=>{
+      addItemForms(it, i);
+    }));
   }
 }
 
 Events.on(EventType.ContentReloadEvent, run(() => {
-  print("Init!");
-  Vars.content.items().each(cons(it=>{
-    //print("Iter:"+it.name+"/"+it.minfo.mod+(it.minfo.mod!=null)?("/"+it.minfo.mod.meta.name):"");
-    addItemForms(it);
-  }));
+  print("Init ContentReload!");
+  addItemRoot();
 }));
 
 Events.on(EventType.ClientLoadEvent, run(() => {
-  print("Init!");
-  Vars.content.items().each(cons(it=>{
-    //print("Iter:"+it.name+"/"+it.minfo.mod+(it.minfo.mod!=null)?("/"+it.minfo.mod.meta.name):"");
-    addItemForms(it);
-  }));
+  print("Init Load!");
+  addItemRoot();
 }));
