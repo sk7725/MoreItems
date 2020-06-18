@@ -44,6 +44,7 @@ const tolerance = 0.01;
 
 const res={};
 
+//Credits to DeltaNedas, modified to make it load after all mods&&not mask colored pixels.
 res.masks = {};
 res.Item = {
 	setTexture(pixmap) {
