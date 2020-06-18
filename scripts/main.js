@@ -121,7 +121,7 @@ function addItemForm(pitem, type, form, brightOffset, statScale){
     item.flammability = pitem.flammability*statScale;
     item.radioactivity = pitem.radioactivity*statScale;
     item.hardness = pitem.hardness;
-    item.description = Core.bundle.get("itemform." + form + ".description", pitem.localizedName);
+    item.description = Core.bundle.format("itemform." + form + ".description", pitem.localizedName);
     item.load();
     print("Add item:"+item.name);
   }
