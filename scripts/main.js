@@ -1,5 +1,7 @@
-//require("moreitems/init");
-const PixmapTextureData = Packages.arc.graphics.gl.PixmapTextureData;
+if(typeof(PixmapTextureData) == "undefined"){
+  const PixmapTextureData = Packages.arc.graphics.gl.PixmapTextureData;
+}
+
 const res={};
 
 res.masks = {};
