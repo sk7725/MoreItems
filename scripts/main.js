@@ -1,3 +1,19 @@
+const root = [
+  {
+    name:"pieces",
+    type:"resource",
+    colorGlow:-0.04,
+    statScale:0.3
+  },
+  {
+    name:"rod",
+    type:"material",
+    colorGlow:0.04,
+    statScale:0.9,
+    whitelistType:"material"
+  }
+];
+
 
 if(typeof(PixmapTextureData1) == "undefined"){
   const PixmapTextureData1 = Packages.arc.graphics.gl.PixmapTextureData;
@@ -72,7 +88,7 @@ res.Item = {
 };
 res.Item.type = ItemType.material;
 
-function addItemForm(pitem, type, form, brightOffset){
+function addItemForm(pitem, type, form, brightOffset, statScale){
   try{
     var itemDef = Object.create(res.Item);
 
@@ -87,9 +103,9 @@ function addItemForm(pitem, type, form, brightOffset){
   	item.type = itemDef.type;
 
     item.localizedName = pitem.localizedName +" "+ Core.bundle.get("itemform." + form + ".name");
-    item.explosiveness = pitem.explosiveness;
-    item.flammability = pitem.flammability;
-    item.radioactivity = pitem.radioactivity;
+    item.explosiveness = pitem.explosiveness*statScale;
+    item.flammability = pitem.flammability*statScale;
+    item.radioactivity = pitem.radioactivity*statScale;
     item.hardness = pitem.hardness;
     item.load();
     print("Add item:"+item.name);
@@ -99,15 +115,20 @@ function addItemForm(pitem, type, form, brightOffset){
   }
 }
 
+function addItemForms(it){
+  if(!it.name.includes("-itemform-")){
+    for(var i=0;i<root.length;i++){
+      if(root[i].hasOwnProperty("whitelistType")&&ItemType[root[i].whitelistType]!=it.type) return;
+      addItemForm(it, root[i].type, root[i].name, root[i].colorGlow, root[i].statScale);
+    }
+  }
+}
 
 Events.on(EventType.ContentReloadEvent, run(() => {
   print("Init!");
   Vars.content.items().each(cons(it=>{
     //print("Iter:"+it.name+"/"+it.minfo.mod+(it.minfo.mod!=null)?("/"+it.minfo.mod.meta.name):"");
-    if(!it.name.includes("-itemform-")){
-      addItemForm(it, "resource", "pieces", -0.04);
-      addItemForm(it, "material", "rod", 0.04);
-    }
+    addItemForms(it);
   }));
 }));
 
@@ -115,9 +136,6 @@ Events.on(EventType.ClientLoadEvent, run(() => {
   print("Init!");
   Vars.content.items().each(cons(it=>{
     //print("Iter:"+it.name+"/"+it.minfo.mod+(it.minfo.mod!=null)?("/"+it.minfo.mod.meta.name):"");
-    if(!it.name.includes("-itemform-")){
-      addItemForm(it, "resource", "pieces", -0.04);
-      addItemForm(it, "material", "rod", 0.04);
-    }
+    addItemForms(it);
   }));
 }));
