@@ -1,6 +1,7 @@
+/*
 if(typeof(PixmapTextureData) == "undefined"){
   const PixmapTextureData = Packages.arc.graphics.gl.PixmapTextureData;
-}
+}*/
 
 const res={};
 
