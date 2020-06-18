@@ -90,13 +90,16 @@ function addItemForm(pitem, type, form, brightOffset){
   item.flammability = pitem.flammability;
   item.radioactivity = pitem.radioactivity;
   item.hardness = pitem.hardness;
-  print("Add item:"+item);
+  print("Add item:"+item.name);
 }
 
-print("Init!");
-Vars.content.items().each(cons(it=>{
-  print("Iter:"+it.name.substring(0,10));
-  if(it.name.substring(0,9)=="moreitems") return;
-  addItemForm(it, "resource", "pieces", -0.04);
-  addItemForm(it, "material", "rod", 0.04);
+Events.on(EventType.ClientLoadEvent, run(() => {
+  print("Init!");
+  Vars.content.items().each(cons(it=>{
+    //print("Iter:"+it.name.substring(0,10));
+    if(!it.name.substring(0,10)=="moreitems-"){
+      addItemForm(it, "resource", "pieces", -0.04);
+      addItemForm(it, "material", "rod", 0.04);
+    }
+  }));
 }));
