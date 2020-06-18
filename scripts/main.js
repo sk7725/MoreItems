@@ -23,7 +23,7 @@ const root = [
     name:"dust",
     type:"resource",
     colorGlow:0.14,
-    statScale:1.2,
+    statScale:1.5,
     whitelistType:"resource"
   }
 ];
@@ -103,6 +103,10 @@ res.Item = {
 res.Item.type = ItemType.material;
 
 function addItemForm(pitem, type, form, brightOffset, statScale){
+  if(Vars.content.getByName(ContentType.item, pitem.name+"-itemform-"+form)){
+    print("Already:"+pitem.name+"-itemform-"+form);
+    return;
+  }
   try{
     var itemDef = Object.create(res.Item);
 
@@ -126,11 +130,6 @@ function addItemForm(pitem, type, form, brightOffset, statScale){
     print("Add item:"+item.name);
   }
   catch(err){
-    var item = Vars.content.getByName(ContentType.item, pitem.name+"-itemform-"+form);
-    if(item != null){
-      item.load();
-      print("Reload:"+item);
-    }
     print(err);
   }
 }
