@@ -110,3 +110,14 @@ Events.on(EventType.ContentReloadEvent, run(() => {
     }
   }));
 }));
+
+Events.on(EventType.ClientLoadEvent, run(() => {
+  print("Init!");
+  Vars.content.items().each(cons(it=>{
+    //print("Iter:"+it.name+"/"+it.minfo.mod+(it.minfo.mod!=null)?("/"+it.minfo.mod.meta.name):"");
+    if(!it.name.includes("-itemform-")){
+      addItemForm(it, "resource", "pieces", -0.04);
+      addItemForm(it, "material", "rod", 0.04);
+    }
+  }));
+}));
