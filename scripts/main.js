@@ -73,7 +73,6 @@ res.Item = {
 res.Item.type = ItemType.material;
 
 function addItemForm(pitem, type, form, brightOffset){
-  if(pitem.isDuplicate) return;
   var itemDef = Object.create(res.Item);
 
   if(!type) type = "resource";
@@ -91,15 +90,14 @@ function addItemForm(pitem, type, form, brightOffset){
   item.flammability = pitem.flammability;
   item.radioactivity = pitem.radioactivity;
   item.hardness = pitem.hardness;
-  item.isDuplicate = true;
   print("Add item:"+item.name);
 }
 
-Events.on(EventType.ClientLoadEvent, run(() => {
+Events.on(EventType.ContentReloadEvent, run(() => {
   print("Init!");
   Vars.content.items().each(cons(it=>{
     //print("Iter:"+it.name.substring(0,10));
-    if(!(it.name.substring(0,10)=="moreitems-")){
+    if(it.minfo.mod==null || it.minfo.mod.meta.name!="moreitems"){
       addItemForm(it, "resource", "pieces", -0.04);
       addItemForm(it, "material", "rod", 0.04);
     }
