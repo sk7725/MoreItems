@@ -97,7 +97,7 @@ Events.on(EventType.ClientLoadEvent, run(() => {
   print("Init!");
   Vars.content.items().each(cons(it=>{
     //print("Iter:"+it.name.substring(0,10));
-    if(!it.name.substring(0,10)=="moreitems-"){
+    if(!(it.name.substring(0,10)=="moreitems-")){
       addItemForm(it, "resource", "pieces", -0.04);
       addItemForm(it, "material", "rod", 0.04);
     }
