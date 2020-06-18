@@ -90,6 +90,7 @@ function addItemForm(pitem, type, form, brightOffset, displayName){
   print("Add item:"+item);
 }
 
+print("Init!");
 Vars.content.items.each(cons(it=>{
   print("Iter:"+it);
   if(it.name.substring(0,9)=="moreitems") return;
