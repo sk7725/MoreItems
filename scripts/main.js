@@ -111,6 +111,8 @@ function addItemForm(pitem, type, form, brightOffset, statScale){
     print("Add item:"+item.name);
   }
   catch(err){
+    var item = Vars.content.getByName(ContentType.item, pitem.name+"-itemform-"+form);
+    if(item != null) item.load();
     print(err);
   }
 }
