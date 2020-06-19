@@ -59,7 +59,7 @@ function addProp(it, propname){
 
 function addProps(it){
   t.global.ItemObj[it.name]=[];
-  var index = it.description.indexOf("\n"+Core.bundle.get("itemprops.unit") + " [lightgray]");
+  var index = (it.description)?it.description.indexOf("\n"+Core.bundle.get("itemprops.unit") + " [lightgray]"):-1;
   if(index>-1){
     it.description = it.description.substring(0, index);
   }
