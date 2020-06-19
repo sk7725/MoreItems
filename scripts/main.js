@@ -182,7 +182,7 @@ var t = this;
 
 function addItemRoot(){
   var modid=[""];
-  var moditems=[];
+  var moditems=[[]];
   Vars.content.items().each(cons(it=>{
     var modname = (it.minfo.mod==null)?"":it.minfo.mod.meta.name;
     var index = (it.minfo.mod==null)?0:modid.indexOf(modname);
