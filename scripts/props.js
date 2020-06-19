@@ -35,7 +35,7 @@ mergeProp("wood", "carbon");
 mergeProp("fabric", "processed");
 
 function hasString(str, a, it){
-  var modname = (pitem.minfo.mod != null)?pitem.minfo.mod.meta.name:"";
+  var modname = (it.minfo.mod != null)?it.minfo.mod.meta.name:"";
   if(modname != ""){
     str = str.substring(modname.length+1, str.length);
   }
