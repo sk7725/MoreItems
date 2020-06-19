@@ -2,24 +2,35 @@ this.global.MoreItems={};
 this.global.MoreItems.itemprops={};
 this.global.ItemObj={};
 
-this.global.MoreItems.itemprops.alloys = ["metal","alloy","brass","electrum","rosegold","ferro","cast","steel","soldered","terne","amalgam"];
-this.global.MoreItems.itemprops.metals = ["aluminium","beryllium","bismuth","chromium","cobalt","copper","gallium","gold","indium","iron","lead","magnesium","mercury","nickel","plutonium","potassium","platinum","rhodium","samarium","scandium","silver","sodium","titanium","tin","thorium","scrap","uranium","zinc"];
-this.global.MoreItems.itemprops.hard = ["stone","mineral","ore","metaglass","dense"];
+this.global.MoreItems.itemprops.metals = ["aluminium","beryllium","bismuth","chromium","cobalt","copper","gallium","gold","indium","iron","lanthanum","lead","magnesium","mercury","nickel","plutonium","potassium","platinum","rhodium","samarium","scandium","silver","sodium","titanium","tin","thorium","scrap","uranium","zinc"];
 this.global.MoreItems.itemprops.nonmetals = ["oxide"];
-this.global.MoreItems.itemprops.soft = ["spore","silicon"];
-this.global.MoreItems.itemprops.sharp = ["glass","steel"];
+
+this.global.MoreItems.itemprops.hard = ["stone","mineral","ore","metaglass","dense"];
+this.global.MoreItems.itemprops.soft = ["spore","silicon","soft"];
+this.global.MoreItems.itemprops.sharp = ["glass","steel","sharp"];
+this.global.MoreItems.itemprops.blunt = ["brass","copper","lead","mercury","lithium","oxide","blunt"];
+this.global.MoreItems.itemprops.beauty = ["diamond","ruby","gem","emerald","sapphire","rose"];
+
+this.global.MoreItems.itemprops.alloys = ["metal","alloy","brass","electrum","rosegold","ferro","cast","steel","soldered","terne","amalgam"];
 this.global.MoreItems.itemprops.carbon = ["carbon","coal","thane","propane","butane","diamond","graphite","carbide","plastic","plastanium","oil","phenol","graphene","fullerene"];
 this.global.MoreItems.itemprops.wood = ["log","wood","tree","book"];
-this.global.MoreItems.itemprops.fabric = ["fabric","nylon","string","cloth"];
-this.global.MoreItems.itemprops.electric = ["silicon","surge","computer","circuit","conductor"];
+this.global.MoreItems.itemprops.fabric = ["fabric","nylon","string","cloth","mass"];
+this.global.MoreItems.itemprops.electric = ["silicon","surge","computer","circuit","conductor","lanthanum"];
+
+this.global.MoreItems.itemprops.bullet = ["bullet","shot","shell","gun","shoot"];
+this.global.MoreItems.itemprops.bomb = ["bomb","boom","grenade","explosive","blast","missile","doom"];
+
+this.global.MoreItems.itemprops.explosive = [];
+this.global.MoreItems.itemprops.flammable = [];
 this.global.MoreItems.itemprops.radioactive = ["cesium","cobalt","iodine","plutonium","radium","radon","strontium","thorium","uranium","radioactive"];
+
 this.global.MoreItems.itemprops.data = ["surge","quantum","scalar","vector","tensor","intelli","byte","bittrium","source","code","terminal","hash","heap","binary","variable","constant","advance","pixellium","zeta"];
-this.global.MoreItems.itemprops.bullet = ["bullet","shot","shell","explosive","blast","missile","doom"];
+this.global.MoreItems.itemprops.ohno = ["ohno","anuke","sk7725"];
+this.global.MoreItems.itemprops.trash = ["scrap","itemform-pieces"];
+
 this.global.MoreItems.itemprops.processed = ["rod","chiseled","brick","pellet","itemform-dust"];
 this.global.MoreItems.itemprops.manufactured = ["plate","wire","gear","bolt","nut"];
-this.global.MoreItems.itemprops.flammable = [];
-this.global.MoreItems.itemprops.explosive = [];
-this.global.MoreItems.itemprops.trash = ["scrap","itemform-pieces"];
+
 
 var t = this;
 
