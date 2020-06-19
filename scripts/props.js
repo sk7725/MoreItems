@@ -34,23 +34,30 @@ mergeProp("metals", "hard");
 mergeProp("wood", "carbon");
 mergeProp("fabric", "processed");
 
+function hasString(str, a){
+  for(var i=0;i<a.length;i++){
+    if(str.includes(a[i])) return true;
+  }
+  return false;
+}
+
 function addProp(it, propname){
   if(t.global.ItemObj[it.name].indexOf(propname)>-1) return;
   t.global.ItemObj[it.name].push(propname);
-  it.description+=(t.global.ItemObj[it.name].length==1)?Core.bundle.get("itemprops."+propname):(", "+Core.bundle.get("itemprops."+propname));
+  it.description+=(t.global.ItemObj[it.name].length==1)?Core.bundle.get("itemprops."+propname+".name"):(", "+Core.bundle.get("itemprops."+propname+".name"));
 }
 
 function addProps(it){
   t.global.ItemObj[it.name]=[];
-  it.description+="\n\n"+Core.bundle.get("itemprops.unit") + " [accent]";
+  it.description+="\n"+Core.bundle.get("itemprops.unit") + " [accent]";
   var props = t.global.MoreItems.itemprops;
   var arr = Object.keys(props);
   for(var i=0;i<arr.length;i++){
-    if(arr[i]=="flammable"&&it.flammability>0) addProp(it, arr[i]);
-    else if(arr[i]=="explosive"&&it.explosiveness>0) addProp(it, arr[i]);
-    else if(arr[i]=="radioactive"&&(it.radioactivity>0||it.name.includes(props[arr[i]]))) addProp(it, arr[i]);
-    else if(arr[i]=="nonmetals"&&(!it.name.includes(props["metals"]))) addProp(it, arr[i]);
-    else if(it.name.includes(props[arr[i]])) addProp(it, arr[i]);
+    if(arr[i]=="flammable"&&it.flammability>0.05) addProp(it, arr[i]);
+    else if(arr[i]=="explosive"&&it.explosiveness>0.05) addProp(it, arr[i]);
+    else if(arr[i]=="radioactive"&&(it.radioactivity>0.05||hasString(it.name, props[arr[i]]))) addProp(it, arr[i]);
+    else if(arr[i]=="nonmetals"&&(!hasString(it.name, props["metals"]))) addProp(it, arr[i]);
+    else if(hasString(it.name, props[arr[i]])) addProp(it, arr[i]);
   }
   it.description += (t.global.ItemObj[it.name].length==0)?"[]None":"[]";
   try{
