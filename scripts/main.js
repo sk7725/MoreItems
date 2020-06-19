@@ -1,3 +1,5 @@
+require("props");
+
 const root = [
   {
     name:"pieces",
@@ -153,12 +155,17 @@ function addItemForms(it, i){
   }
 }
 
+var t = this;
+
 function addItemRoot(){
   for(var i=0;i<root.length;i++){
     Vars.content.items().each(cons(it=>{
       addItemForms(it, i);
     }));
   }
+  Vars.content.items().each(cons(it=>{
+    t.global.MoreItems.addItemProps(it);
+  }));
 }
 
 Events.on(EventType.ContentReloadEvent, run(() => {
@@ -170,5 +177,3 @@ Events.on(EventType.ClientLoadEvent, run(() => {
   print("Init Load!");
   addItemRoot();
 }));
-
-require("props");

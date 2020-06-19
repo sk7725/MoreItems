@@ -35,6 +35,7 @@ mergeProp("wood", "carbon");
 mergeProp("fabric", "processed");
 
 function addProp(it, propname){
+  if(t.global.ItemObj[it.name].indexOf(propname)>-1) return;
   t.global.ItemObj[it.name].push(propname);
   it.description+=(t.global.ItemObj[it.name].length==1)?Core.bundle.get("itemprops."+propname)||(", "+Core.bundle.get("itemprops."+propname));
 }
@@ -55,6 +56,4 @@ function addProps(it){
   it.trait = t.global.ItemObj[it.name];
 }
 
-Vars.content.items().each(cons(it=>{
-  addProps(it);
-}));
+this.global.MoreItems.addItemProps = addProps;
