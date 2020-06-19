@@ -181,10 +181,33 @@ function addItemForms(it, i){
 var t = this;
 
 function addItemRoot(){
+  var modid=[""];
+  var moditems=[];
+  Vars.content.items().each(cons(it=>{
+    var modname = (it.minfo.mod==null)?"":it.minfo.mod.meta.name;
+    var index = (it.minfo.mod==null)?0:modid.indexOf(modname);
+    if(modname != "moreitems" && (!it.name.includes("-itemform-"))){
+      if(index<0){
+        modid.push(modname);
+        var tmparr=[];
+        moditems.push(tmparr);
+        index = modid.length - 1;
+      }
+      moditems[index].push(it);
+    }
+  }));
+  /*
   for(var i=0;i<root.length;i++){
     Vars.content.items().each(cons(it=>{
       addItemForms(it, i);
     }));
+  }*/
+  for(var i=0;i<moditems.length;i++){
+    for(var j=0;j<root.length;j++){
+      for(var k=0;k<moditems[i].length;k++){
+        addItemForms(moditems[i][k], i);
+      }
+    }
   }
   Vars.content.items().each(cons(it=>{
     t.global.MoreItems.addItemProps(it);
