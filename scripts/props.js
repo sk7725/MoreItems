@@ -49,7 +49,7 @@ function addProp(it, propname){
 
 function addProps(it){
   t.global.ItemObj[it.name]=[];
-  it.description+="\n"+Core.bundle.get("itemprops.unit") + " [white]";
+  it.description+="\n"+Core.bundle.get("itemprops.unit") + " [lightgray]";
   var props = t.global.MoreItems.itemprops;
   var arr = Object.keys(props);
   for(var i=0;i<arr.length;i++){
