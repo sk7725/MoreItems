@@ -20,6 +20,7 @@ this.global.MoreItems.itemprops.plastic = ["plastic","plastanium","-pet","foam"]
 this.global.MoreItems.itemprops.paper = ["paper","pulp","book"];
 this.global.MoreItems.itemprops.fabric = ["fabric","nylon","string","cloth","mass"];
 this.global.MoreItems.itemprops.electric = ["silicon","surge","computer","circuit","conductor","lanthanum"];
+this.global.MoreItems.itemprops.biological = ["spore","critter","bug","animal","food","alcohol","glucose","fatty","glycer","amino","acid"];
 
 this.global.MoreItems.itemprops.bullet = ["bullet","shot","shell","gun","shoot"];
 this.global.MoreItems.itemprops.bomb = ["bomb","boom","grenade","explosive","blast","missile","doom"];
@@ -28,7 +29,8 @@ this.global.MoreItems.itemprops.explosive = [];
 this.global.MoreItems.itemprops.flammable = [];
 this.global.MoreItems.itemprops.radioactive = ["cesium","cobalt","iodine","plutonium","radium","radon","strontium","thorium","uranium","radioactive"];
 
-this.global.MoreItems.itemprops.energy = ["pyratite","cell","power","energy"];
+this.global.MoreItems.itemprops.energy = ["pyratite","cell","power","energy","space"];
+this.global.MoreItems.itemprops.matter = ["t-time","dark-matter","light-matter","antimatter","anti-","bittrium","time","pixel"];
 this.global.MoreItems.itemprops.data = ["surge","quantum","scalar","vector","tensor","intelli","byte","bittrium","source","code","terminal","hash","heap","binary","variable","constant","advance","pixellium","zeta","redblack","infiar","matrix"];
 this.global.MoreItems.itemprops.ohno = ["ohno","anuke","sk7725","test"];
 this.global.MoreItems.itemprops.trash = ["scrap","itemform-pieces","gdeft"];
@@ -63,7 +65,7 @@ function hasString(str, a, it){
   catch(err){}
 
   if(modname != ""){
-    str = str.substring(modname.length+1, str.length);
+    str = str.substring(modname.length, str.length);
   }
   for(var i=0;i<a.length;i++){
     if(str.includes(a[i])) return true;
