@@ -132,7 +132,7 @@ res.Item = {
     return this._pmodcore;
   },
   displayDescription(){
-    return (this._pmod == "")?this.description:(this.description +"\n"+ Core.bundle.format("mod.display", this._pmod));
+    return (this._pmod == ""||this.pmod === undefined||this.pmod === null)?this.description:(this.description +"\n"+ Core.bundle.format("mod.display", this._pmod));
   }
 };
 res.Item.type = ItemType.material;
@@ -165,7 +165,7 @@ function addItemForm(pitem, type, form, brightOffset, statScale){
       item.setMod(pitem.minfo.mod.meta.displayName());
       item.setModCore(pitem.minfo.mod.meta.name);
     }
-    item.load();
+    //item.load();
     print("Add item:"+item.name);
   }
   catch(err){
@@ -191,6 +191,9 @@ function addItemRoot(){
   Vars.content.items().each(cons(it=>{
     t.global.MoreItems.addItemProps(it);
   }));
+  Vars.content.init();
+  Vars.content.load();
+  Vars.data.load();
 }
 
 Events.on(EventType.ContentReloadEvent, run(() => {
