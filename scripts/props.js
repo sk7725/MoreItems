@@ -53,7 +53,10 @@ function addProps(it){
     else if(it.name.includes(props[arr[i]])) addProp(it, arr[i]);
   }
   it.description += (t.global.ItemObj[it.name].length==0)?"[]None":"[]";
-  it.trait = t.global.ItemObj[it.name];
+  try{
+    it.setTrait(t.global.ItemObj[it.name]);
+  }
+  catch(err){}
 }
 
 this.global.MoreItems.addItemProps = addProps;

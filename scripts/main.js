@@ -112,7 +112,14 @@ res.Item = {
 
 	icon(icon){
 		return this.region;
-	}
+	},
+  _trait:[],
+  setTrait(t){
+    this._trait = t;
+  },
+  getTrait(){
+    return this._trait;
+  }
 };
 res.Item.type = ItemType.material;
 
