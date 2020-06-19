@@ -140,6 +140,8 @@ res.Item.type = ItemType.material;
 function addItemForm(pitem, type, form, brightOffset, statScale){
   if(Vars.content.getByName(ContentType.item, pitem.name+"-itemform-"+form)){
     print("Already:"+pitem.name+"-itemform-"+form);
+    var item = Vars.content.getByName(ContentType.item, pitem.name+"-itemform-"+form);
+    print("Item Debug:\n"+"ID: "+item.id+"\nName: "+item.name);
     return;
   }
   try{
@@ -166,7 +168,9 @@ function addItemForm(pitem, type, form, brightOffset, statScale){
       item.setModCore(pitem.minfo.mod.meta.name);
     }
     item.load();
+    item.minfo.mod = Vars.mods.locateMod("moreitems");
     print("Add item:"+item.name);
+    print("Item Debug:\n"+"ID: "+item.id+"\nName: "+item.name);
   }
   catch(err){
     print(err);
