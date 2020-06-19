@@ -2,12 +2,6 @@ require("props");
 
 const root = [
   {
-    name:"pieces",
-    type:"resource",
-    colorGlow:-0.04,
-    statScale:0
-  },
-  {
     name:"rod",
     type:"material",
     colorGlow:0.08,
