@@ -1,0 +1,51 @@
+BASEMETAL <-> NONMETAL
+
+aluminium , beryllium , bismuth , chromium , cobalt , copper , gallium , gold , indium , iron , lead , magnesium , mercury , nickel , plutonium , potassium , platinum , rhodium , samarium , scandium , silver , sodium , titanium , tin , uranium , zinc 
+
+ALLOYMETAL
+
+metal , alloy , brass , electrum , rose gold , ferro , cast , steel , soldered , terne , amalgam
+
+RADIOACTIVE
+
+cesium , cobalt , iodine , plutonium , radium , radon , strontium , thorium , uranium , radioactive
+
+CARBON
+
+carbon , coal , thane , propane , butane , diamond , graphite , carbide , plastic , plastanium , oil , phenol , graphene , fullerene
+
+WOOD
+
+log , wood , tree , book
+
+HARD
+
+stone , mineral , ore , metaglass , dense
+
+SOFT
+
+spore , silicon
+
+SHARP
+
+glass , steel
+
+ELECTRIC
+
+silicon , surge , computer , circuit , conductor
+
+DATA
+
+surge , quantum , scalar , vector , tensor , intelli , byte , bittrium , source , code , terminal , hash , heap , binary , variable , constant , advance
+
+BULLET
+
+bullet , shot , shell , explosive , blast , missile , doom
+
+PROCESSED 1
+
+rod , chiseled , brick , pellet , dust
+
+PROCESSED 2
+
+plate , wire , gear , bolt , nut

@@ -170,3 +170,5 @@ Events.on(EventType.ClientLoadEvent, run(() => {
   print("Init Load!");
   addItemRoot();
 }));
+
+require("props");
