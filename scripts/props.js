@@ -5,7 +5,7 @@ this.global.ItemObj={};
 this.global.MoreItems.itemprops.metals = ["aluminium","beryllium","bismuth","chromium","cobalt","copper","gallium","gold","indium","iron","lanthanum","lead","magnesium","mercury","nickel","plutonium","potassium","platinum","rhodium","samarium","scandium","silver","sodium","titanium","tin","thorium","scrap","uranium","zinc"];
 this.global.MoreItems.itemprops.nonmetals = ["oxide"];
 
-this.global.MoreItems.itemprops.hard = ["stone","mineral","-ore","metaglass","dense"];
+this.global.MoreItems.itemprops.hard = ["mineral","-ore","metaglass","dense"];
 this.global.MoreItems.itemprops.soft = ["spore","silicon","soft"];
 this.global.MoreItems.itemprops.sharp = ["glass","steel","sharp"];
 this.global.MoreItems.itemprops.blunt = ["brass","copper","lead","mercury","lithium","oxide","blunt"];
@@ -13,7 +13,11 @@ this.global.MoreItems.itemprops.beauty = ["diamond","ruby","gem","emerald","sapp
 
 this.global.MoreItems.itemprops.alloys = ["metal","alloy","brass","electrum","rosegold","ferro","cast","steel","soldered","terne","amalgam"];
 this.global.MoreItems.itemprops.carbon = ["carbon","coal","thane","propane","butane","diamond","graphite","carbide","plastic","plastanium","oil","phenol","graphene","fullerene"];
-this.global.MoreItems.itemprops.wood = ["log","wood","tree","book"];
+this.global.MoreItems.itemprops.wood = ["log","wood","tree"];
+this.global.MoreItems.itemprops.stone = ["stone","rock","brick","site"];
+this.global.MoreItems.itemprops.glass = ["glass"];
+this.global.MoreItems.itemprops.plastic = ["plastic","plastanium","-pet","foam"];
+this.global.MoreItems.itemprops.paper = ["paper","pulp","book"];
 this.global.MoreItems.itemprops.fabric = ["fabric","nylon","string","cloth","mass"];
 this.global.MoreItems.itemprops.electric = ["silicon","surge","computer","circuit","conductor","lanthanum"];
 
@@ -24,6 +28,7 @@ this.global.MoreItems.itemprops.explosive = [];
 this.global.MoreItems.itemprops.flammable = [];
 this.global.MoreItems.itemprops.radioactive = ["cesium","cobalt","iodine","plutonium","radium","radon","strontium","thorium","uranium","radioactive"];
 
+this.global.MoreItems.itemprops.energy = ["pyratite","cell","power","energy"];
 this.global.MoreItems.itemprops.data = ["surge","quantum","scalar","vector","tensor","intelli","byte","bittrium","source","code","terminal","hash","heap","binary","variable","constant","advance","pixellium","zeta","redblack"];
 this.global.MoreItems.itemprops.ohno = ["ohno","anuke","sk7725"];
 this.global.MoreItems.itemprops.trash = ["scrap","itemform-pieces"];
@@ -44,8 +49,11 @@ function mergeProp(from, to){
 mergeProp("alloys", "metals");
 mergeProp("radioactive", "metals");
 mergeProp("metals", "hard");
+mergeProp("stone", "hard");
 mergeProp("wood", "carbon");
 mergeProp("fabric", "processed");
+mergeProp("paper", "processed");
+mergeProp("paper", "wood");
 
 function hasString(str, a, it){
   var modname = (it.minfo.mod != null)?it.minfo.mod.meta.name:"";
