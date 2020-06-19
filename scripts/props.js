@@ -42,6 +42,7 @@ function mergeProp(from, to){
 }
 
 mergeProp("alloys", "metals");
+mergeProp("radioactive", "metals");
 mergeProp("metals", "hard");
 mergeProp("wood", "carbon");
 mergeProp("fabric", "processed");
