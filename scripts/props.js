@@ -49,7 +49,7 @@ function addProp(it, propname){
 
 function addProps(it){
   t.global.ItemObj[it.name]=[];
-  it.description+="\n"+Core.bundle.get("itemprops.unit") + " [accent]";
+  it.description+="\n"+Core.bundle.get("itemprops.unit") + " [white]";
   var props = t.global.MoreItems.itemprops;
   var arr = Object.keys(props);
   for(var i=0;i<arr.length;i++){
@@ -59,7 +59,7 @@ function addProps(it){
     else if(arr[i]=="nonmetals"&&(!hasString(it.name, props["metals"]))) addProp(it, arr[i]);
     else if(hasString(it.name, props[arr[i]])) addProp(it, arr[i]);
   }
-  it.description += (t.global.ItemObj[it.name].length==0)?"[]None":"[]";
+  it.description += (t.global.ItemObj[it.name].length==0)?("[]"+Core.bundle.get("itemprops.none")):"[]";
   try{
     it.setTrait(t.global.ItemObj[it.name]);
   }
