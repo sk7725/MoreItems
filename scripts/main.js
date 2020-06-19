@@ -205,7 +205,7 @@ function addItemRoot(){
   for(var i=0;i<moditems.length;i++){
     for(var j=0;j<root.length;j++){
       for(var k=0;k<moditems[i].length;k++){
-        addItemForms(moditems[i][k], i);
+        addItemForms(moditems[i][k], j);
       }
     }
   }
