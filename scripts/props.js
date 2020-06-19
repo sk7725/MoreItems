@@ -24,7 +24,7 @@ this.global.MoreItems.itemprops.explosive = [];
 this.global.MoreItems.itemprops.flammable = [];
 this.global.MoreItems.itemprops.radioactive = ["cesium","cobalt","iodine","plutonium","radium","radon","strontium","thorium","uranium","radioactive"];
 
-this.global.MoreItems.itemprops.data = ["surge","quantum","scalar","vector","tensor","intelli","byte","bittrium","source","code","terminal","hash","heap","binary","variable","constant","advance","pixellium","zeta"];
+this.global.MoreItems.itemprops.data = ["surge","quantum","scalar","vector","tensor","intelli","byte","bittrium","source","code","terminal","hash","heap","binary","variable","constant","advance","pixellium","zeta","redblack"];
 this.global.MoreItems.itemprops.ohno = ["ohno","anuke","sk7725"];
 this.global.MoreItems.itemprops.trash = ["scrap","itemform-pieces"];
 
