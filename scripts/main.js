@@ -165,7 +165,7 @@ function addItemForm(pitem, type, form, brightOffset, statScale){
       item.setMod(pitem.minfo.mod.meta.displayName());
       item.setModCore(pitem.minfo.mod.meta.name);
     }
-    //item.load();
+    item.load();
     print("Add item:"+item.name);
   }
   catch(err){
