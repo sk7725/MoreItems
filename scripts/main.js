@@ -157,7 +157,7 @@ function addItemForm(pitem, type, form, brightOffset, statScale){
     item.radioactivity = pitem.radioactivity*statScale;
     item.hardness = pitem.hardness;
     item.description = Core.bundle.format("itemform." + form + ".description", pitem.localizedName);
-    if(item.id>128) item.description += "\n"+Core.bundle.get("itemform.toomanyitems");
+    if(item.id>127) item.description += "\n"+Core.bundle.get("itemform.toomanyitems");
     if(pitem.minfo.mod != null){
       item.setMod(pitem.minfo.mod.meta.displayName());
       item.setModCore(pitem.minfo.mod.meta.name);
