@@ -132,7 +132,7 @@ res.Item = {
     return this._pmodcore;
   },
   displayDescription(){
-    return (this._pmod == ""||this.pmod === undefined||this.pmod === null)?this.description:(this.description +"\n"+ Core.bundle.format("mod.display", this._pmod));
+    return (this._pmod == ""||this._pmod === undefined||this._pmod === null)?this.description:(this.description +"\n"+ Core.bundle.format("mod.display", this._pmod));
   }
 };
 res.Item.type = ItemType.material;
