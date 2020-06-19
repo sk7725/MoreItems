@@ -119,6 +119,13 @@ res.Item = {
   },
   getTrait(){
     return this._trait;
+  },
+  _pomd:"",
+  setMod(a){
+    this._pmod = a;
+  },
+  displayDescription(){
+    return (this._pmod != "")?this.description:(this.description +"\n"+ Core.bundle.format("mod.display", this._pmod));
   }
 };
 res.Item.type = ItemType.material;
@@ -147,6 +154,7 @@ function addItemForm(pitem, type, form, brightOffset, statScale){
     item.radioactivity = pitem.radioactivity*statScale;
     item.hardness = pitem.hardness;
     item.description = Core.bundle.format("itemform." + form + ".description", pitem.localizedName);
+    if(pitem.minfo.mod != null) item.setMod(pitme.minfo.mod.meta.displayName());
     item.load();
     print("Add item:"+item.name);
   }

@@ -34,7 +34,11 @@ mergeProp("metals", "hard");
 mergeProp("wood", "carbon");
 mergeProp("fabric", "processed");
 
-function hasString(str, a){
+function hasString(str, a, it){
+  var modname = (pitem.minfo.mod != null)?pitem.minfo.mod.meta.name:"";
+  if(modname != ""){
+    str = str.substring(modname.length+1, str.length);
+  }
   for(var i=0;i<a.length;i++){
     if(str.includes(a[i])) return true;
   }
@@ -55,9 +59,9 @@ function addProps(it){
   for(var i=0;i<arr.length;i++){
     if(arr[i]=="flammable"&&it.flammability>0.05) addProp(it, arr[i]);
     else if(arr[i]=="explosive"&&it.explosiveness>0.05) addProp(it, arr[i]);
-    else if(arr[i]=="radioactive"&&(it.radioactivity>0.05||hasString(it.name, props[arr[i]]))) addProp(it, arr[i]);
-    else if(arr[i]=="nonmetals"&&(!hasString(it.name, props["metals"]))) addProp(it, arr[i]);
-    else if(hasString(it.name, props[arr[i]])) addProp(it, arr[i]);
+    else if(arr[i]=="radioactive"&&(it.radioactivity>0.05||hasString(it.name, props[arr[i]], it))) addProp(it, arr[i]);
+    else if(arr[i]=="nonmetals"&&(!hasString(it.name, props["metals"], it))) addProp(it, arr[i]);
+    else if(hasString(it.name, props[arr[i]], it)) addProp(it, arr[i]);
   }
   it.description += (t.global.ItemObj[it.name].length==0)?("[]"+Core.bundle.get("itemprops.none")):"[]";
   try{
