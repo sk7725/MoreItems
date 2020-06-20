@@ -29,14 +29,21 @@ this.global.MoreItems.itemprops.explosive = [];
 this.global.MoreItems.itemprops.flammable = [];
 this.global.MoreItems.itemprops.radioactive = ["cesium","cobalt","iodine","plutonium","radium","radon","strontium","thorium","uranium","radioactive"];
 
-this.global.MoreItems.itemprops.energy = ["pyratite","cell","power","energy","space"];
+this.global.MoreItems.itemprops.energy = ["pyratite","cell","power","energy","space","star","neutron"];
 this.global.MoreItems.itemprops.matter = ["t-time","dark-matter","light-matter","antimatter","anti-","bittrium","time","pixel"];
 this.global.MoreItems.itemprops.data = ["surge","quantum","scalar","vector","tensor","intelli","byte","bittrium","source","code","terminal","hash","heap","binary","variable","constant","advance","pixellium","zeta","redblack","infiar","matrix"];
+this.global.MoreItems.itemprops.light = ["lightcube"];
 this.global.MoreItems.itemprops.ohno = ["ohno","anuke","sk7725","test"];
 this.global.MoreItems.itemprops.trash = ["scrap","itemform-pieces","gdeft"];
 
 this.global.MoreItems.itemprops.processed = ["rod","chiseled","brick","pellet","itemform-dust"];
-this.global.MoreItems.itemprops.manufactured = ["plate","wire","gear","bolt","nut"];
+this.global.MoreItems.itemprops.manufactured = ["plate","wire","gear","bolt","nut","plank","pane","wafer"];
+this.global.MoreItems.itemprops.rod = ["itemform-rod","itemform-rodlog","itemform-rodstone","itemform-rodelec","itemform-rodnorm"];
+this.global.MoreItems.itemprops.plate = ["itemform-plate","itemform-plank","itemform-plateprog","itemform-plankstone","itemform-platenorm","itemform-pane"];
+this.global.MoreItems.itemprops.string = [];
+this.global.MoreItems.itemprops.wire = ["itemform-wire"];
+this.global.MoreItems.itemprops.wafer = ["itemform-wafer","curcuit","computer","semiconductor"];
+this.global.MoreItems.itemprops.dust = ["itemform-dust","dust","dirt","sand"];
 
 
 var t = this;
@@ -56,6 +63,8 @@ mergeProp("wood", "carbon");
 mergeProp("fabric", "processed");
 mergeProp("paper", "processed");
 mergeProp("paper", "wood");
+mergeProp("fabric", "wire");
+mergeProp("manufactured", "processed");
 
 function hasString(str, a, it){
   var modname = (it.minfo.mod != null)?it.minfo.mod.meta.name:"";
@@ -93,6 +102,10 @@ function addProps(it){
     else if(arr[i]=="explosive"&&it.explosiveness>0.05) addProp(it, arr[i]);
     else if(arr[i]=="radioactive"&&(it.radioactivity>0.05||hasString(it.name, props[arr[i]], it))) addProp(it, arr[i]);
     else if(arr[i]=="nonmetals"&&(!hasString(it.name, props["metals"], it))) addProp(it, arr[i]);
+    else if(arr[i]=="wire"&&(hasString(it.name, props[arr[i]], it))){
+      if(hasString(it.name, props["metals"], it)) addProp(it, arr[i]);
+      else addProp(it, "string");
+    }
     else if(hasString(it.name, props[arr[i]], it)) addProp(it, arr[i]);
   }
   it.description += (t.global.ItemObj[it.name].length==0)?("[]"+Core.bundle.get("itemprops.none")):"[]";
