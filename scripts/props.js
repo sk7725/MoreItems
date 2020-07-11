@@ -2,7 +2,7 @@ this.global.MoreItems={};
 this.global.MoreItems.itemprops={};
 this.global.ItemObj={};
 
-this.global.MoreItems.itemprops.metals = ["aluminium","beryllium","bismuth","chromium","cobalt","copper","gallium","gold","indium","iron","lanthanum","lead","magnesium","mercury","nickel","plutonium","potassium","platinum","rhodium","samarium","scandium","silver","sodium","titanium","tin","thorium","scrap","uranium","zinc","CRITTERS"];
+this.global.MoreItems.itemprops.metals = ["aluminium","beryllium","bismuth","chromium","cobalt","copper","gallium","gold","indium","iron","lanthanum","lead","magnesium","mercury","nickel","plutonium","potassium","platinum","rhodium","samarium","scandium","silver","sodium","titanium","tin","thorium","scrap","uranium","zinc","CRITTERS","nium"];
 this.global.MoreItems.itemprops.nonmetals = ["oxide"];
 
 this.global.MoreItems.itemprops.hard = ["mineral","-ore","metaglass","dense"];
