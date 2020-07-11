@@ -2,7 +2,7 @@ this.global.MoreItems={};
 this.global.MoreItems.itemprops={};
 this.global.ItemObj={};
 
-this.global.MoreItems.itemprops.metals = ["beryllium","bismuth","chromium","cobalt","copper","gallium","gold","indium","iron","lanthanum","lead","mercury","nickel","platinum","silver","sodium","tin","scrap","zinc","CRITTERS","nium","sium","dium","rium"];
+this.global.MoreItems.itemprops.metals = ["aluminium","beryllium","bismuth","chromium","cobalt","copper","gallium","gold","indium","iron","lanthanum","lead","magnesium","mercury","nickel","plutonium","potassium","platinum","rhodium","samarium","scandium","silver","sodium","titanium","tin","thorium","scrap","uranium","zinc","CRITTERS","nium","sium","dium","rium"];
 this.global.MoreItems.itemprops.nonmetals = ["oxide"];
 
 this.global.MoreItems.itemprops.hard = ["mineral","-ore","metaglass","dense"];
@@ -11,7 +11,7 @@ this.global.MoreItems.itemprops.sharp = ["glass","steel","sharp"];
 this.global.MoreItems.itemprops.blunt = ["brass","copper","lead","mercury","lithium","oxide","blunt"];
 this.global.MoreItems.itemprops.beauty = ["diamond","ruby","gem","emerald","sapphire","rose"];
 
-this.global.MoreItems.itemprops.alloys = ["metal","alloy","brass","electrum","rosegold","ferro","cast","steel","soldered","terne","amalgam","toughitinum","plate"];
+this.global.MoreItems.itemprops.alloys = ["metal","alloy","brass","electrum","rosegold","ferro","cast","steel","soldered","terne","amalgam","toughitinum","tau"];
 this.global.MoreItems.itemprops.carbon = ["carbon","coal","thane","propane","butane","diamond","graphite","carbide","plastic","plastanium","oil","phenol","graphene","fullerene"];
 this.global.MoreItems.itemprops.wood = ["log","wood","tree"];
 this.global.MoreItems.itemprops.stone = ["stone","rock","brick","site"];
